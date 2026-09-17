@@ -9,25 +9,25 @@ The system uses two different data sources:
 - **PHQ-9 questionnaire data** – represents subjective psychological information.
 - **Wearable physiological data** – represents objective physiological information such as heart rate, sleep duration, body temperature, and blood oxygen.
 
-The two data streams are processed independently using machine learning models and their predictions are combined to provide an overall assessment.
+The two data streams are processed independently using machine learning models, with their predictions intended to contribute to an overall assessment.
 
 ## System Architecture
 
 ```text
-                 MindTrack
-                     |
-          -----------------------
-          |                     |
-      PHQ-9 Data          Wearable Data
-          |                     |
-   Preprocessing          Preprocessing
-          |                     |
-        SMOTE                  SMOTE
-          |                     |
-       TabNet                 TabNet
-          |                     |
-   PHQ-9 Prediction      Wearable Prediction
-          |                     |
-          --------- Fusion -----
-                     |
-              Final Assessment
+                         MindTrack
+                             |
+              -----------------------------
+              |                           |
+          PHQ-9 Data                Wearable Data
+              |                           |
+       Preprocessing                Preprocessing
+              |                           |
+            SMOTE                       SMOTE
+              |                           |
+           TabNet                     TabNet
+              |                           |
+      PHQ-9 Prediction          Wearable Prediction
+              |                           |
+              ----------- Fusion ----------
+                           |
+                    Final Assessment
